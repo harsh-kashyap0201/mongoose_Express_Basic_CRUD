@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products</title>
+    <style>
+        table, th, td {
+            border-collapse: collapse;
+            padding: 15px;
+            border: 1px solid black;
+        }
+        th, td {
+            background-color: #96D4D4;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        ALL MART 
+    </h1>
+    <h2>
+        <%=category%> Products:
+    </h2>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>price</th>
+            <th>quantity</th>
+            <th>category</th>
+            <th>available</th>
+            <th>version</th>
+        </tr>
+        <% for (let product of products) {%>
+            <tr>
+                <td><a href="/products/<%= product.id %> "><%= product.id %></a></td>
+                <td><%= product.name %></td>
+                <td><%= product.price %></td>
+                <td><%= product.quantity %></td>
+                <td><a href="/products?category=<%= product.category %>"><%= product.category %></a></td>
+                <td><%= product.available %></td>
+                <td><%= product.__v%></td>
+            </tr>
+        <% } %> 
+    </table>
+</body>
+</html>
+
+
+<!-- (7) ['_id', 'name', 'price', 'quantity', 'category', 'available', '__v'] -->

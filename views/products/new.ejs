@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+</head>
+<body>
+    <h1>Add Product</h1>
+    <hr>
+    <br>
+    <form action="/products/new" method="post" >
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="name">
+        <br>
+        <label for="price">Price</label>
+        <input type="number" name="price" placeholder="price">
+        <br>
+        <label for="quantity">quantity</label>
+        <input type="number" name="quantity" placeholder="quantity">
+        <br>
+        <label for="category">category</label>
+        <select id="category" name="category">
+            <% let arr=['Electronics', 'Clothes', 'Food', 'Books', 'Others'] %> 
+            <% for (cat of arr) {%> 
+                <option value="<%= cat %>"><%= cat  %> </option>
+            <% } %> 
+        </select>
+        <br>
+        <label for="available">available</label>
+        <select id="available" name="available">
+            <%  arr=['true', 'false'] %>
+            <% for (ava of arr) {%> 
+                <option value="<%= ava %>"><%= ava  %> </option>
+            <% } %>
+        </select>
+        <br>
+        <input type="submit" name="submit" value="Add Product">
+    </form>
+</body>
+</html>
